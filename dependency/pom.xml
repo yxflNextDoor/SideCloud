@@ -24,8 +24,15 @@
 
         <spring-cloud.version>2023.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
+        <dynamic-tp-dependencies.version>1.1.7-3.x</dynamic-tp-dependencies.version>
 
-        <bcprov-jdk18on.version>1.77</bcprov-jdk18on.version>
+        <bcprov-jdk18on.version>1.78.1</bcprov-jdk18on.version>
+        <x-file-storage-spring.version>2.2.1</x-file-storage-spring.version>
+        <hippo4j-spring-boot-starter.version>1.5.0</hippo4j-spring-boot-starter.version>
+        <dynamic-tp-spring-cloud-starter-nacos.version>1.1.7-3.x</dynamic-tp-spring-cloud-starter-nacos.version>
+        <jimmer.version>0.8.150</jimmer.version>
+        <mybatis-flex-spring-boot3-starter.version>1.9.7</mybatis-flex-spring-boot3-starter.version>
+        <mybatis-flex-processor.version>1.9.7</mybatis-flex-processor.version>
     </properties>
 
     <dependencyManagement>
@@ -46,6 +53,57 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
             </dependency>
+
+            <dependency>
+                <groupId>org.dromara.dynamictp</groupId>
+                <artifactId>dynamic-tp-dependencies</artifactId>
+                <version>1.1.7-3.x</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <!-- https://x-file-storage.xuyanwu.cn/ 一站式存储解决方案 -->
+            <dependency>
+                <groupId>org.dromara.x-file-storage</groupId>
+                <artifactId>x-file-storage-spring</artifactId>
+                <version>#{x-file-storage-spring.version}</version>
+            </dependency>
+
+            <!-- https://hippo4j.cn/ github高赞动态线程池 -->
+            <dependency>
+                <groupId>cn.hippo4j</groupId>
+                <artifactId>hippo4j-spring-boot-starter</artifactId>
+                <version>${hippo4j-spring-boot-starter.version}</version>
+            </dependency>
+
+            <!-- https://dynamictp.cn/ 美团开源的动态线程池 -->
+            <dependency>
+                <groupId>org.dromara.dynamictp</groupId>
+                <artifactId>dynamic-tp-spring-cloud-starter-nacos</artifactId>
+                <version>${dynamic-tp-spring-cloud-starter-nacos.version}</version>
+            </dependency>
+
+            <!-- https://babyfish-ct.github.io/jimmer-doc/zh/  orm框架 -->
+            <dependency>
+                <groupId>org.babyfish.jimmer</groupId>
+                <artifactId>jimmer-spring-boot-starter</artifactId>
+                <version>${jimmer.version}</version>
+            </dependency>
+
+            <!-- https://mybatis-flex.com/ orm框架 -->
+            <dependency>
+                <groupId>com.mybatis-flex</groupId>
+                <artifactId>mybatis-flex-spring-boot3-starter</artifactId>
+                <version>${mybatis-flex-spring-boot3-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mybatis-flex</groupId>
+                <artifactId>mybatis-flex-processor</artifactId>
+                <version>${mybatis-flex-processor.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
 
 
         </dependencies>

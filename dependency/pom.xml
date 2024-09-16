@@ -12,6 +12,8 @@
         <relativePath/>
     </parent>
 
+    <description>依赖管理</description>
+
     <groupId>com.side</groupId>
     <artifactId>dependency</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -33,6 +35,8 @@
         <jimmer.version>0.8.150</jimmer.version>
         <mybatis-flex-spring-boot3-starter.version>1.9.7</mybatis-flex-spring-boot3-starter.version>
         <mybatis-flex-processor.version>1.9.7</mybatis-flex-processor.version>
+        <guava.version>33.3.0-jre</guava.version>
+        <commons-lang3.version>3.17.0</commons-lang3.version>
     </properties>
 
     <dependencyManagement>
@@ -102,6 +106,20 @@
                 <artifactId>mybatis-flex-processor</artifactId>
                 <version>${mybatis-flex-processor.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava google guava工具包-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 apache commons工具包 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
             </dependency>
 
 

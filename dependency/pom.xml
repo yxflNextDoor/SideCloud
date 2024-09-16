@@ -23,7 +23,9 @@
         <java.versions>1.17</java.versions>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <spring-boot.version>3.3.0</spring-boot.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
         <dynamic-tp-dependencies.version>1.1.7-3.x</dynamic-tp-dependencies.version>
@@ -37,10 +39,22 @@
         <mybatis-flex-processor.version>1.9.7</mybatis-flex-processor.version>
         <guava.version>33.3.0-jre</guava.version>
         <commons-lang3.version>3.17.0</commons-lang3.version>
+        <lombok.version>1.18.34</lombok.version>
+        <slf4j.version>2.0.16</slf4j.version>
+        <jackson.version>2.17.2</jackson.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+
             <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -58,14 +72,13 @@
                 <type>pom</type>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api  日志依赖
+                (依赖的版本加载是在同一级别的pom.xml文件中，命中则直接返回，所以此处要放在dynamic-tp-dependencies之前)-->
             <dependency>
-                <groupId>org.dromara.dynamictp</groupId>
-                <artifactId>dynamic-tp-dependencies</artifactId>
-                <version>1.1.7-3.x</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
-
 
             <!-- https://x-file-storage.xuyanwu.cn/ 一站式存储解决方案 -->
             <dependency>
@@ -79,13 +92,6 @@
                 <groupId>cn.hippo4j</groupId>
                 <artifactId>hippo4j-spring-boot-starter</artifactId>
                 <version>${hippo4j-spring-boot-starter.version}</version>
-            </dependency>
-
-            <!-- https://dynamictp.cn/ 美团开源的动态线程池 -->
-            <dependency>
-                <groupId>org.dromara.dynamictp</groupId>
-                <artifactId>dynamic-tp-spring-cloud-starter-nacos</artifactId>
-                <version>${dynamic-tp-spring-cloud-starter-nacos.version}</version>
             </dependency>
 
             <!-- https://babyfish-ct.github.io/jimmer-doc/zh/  orm框架 -->
@@ -122,7 +128,43 @@
                 <version>${commons-lang3.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok lombok自动生成常用方法-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
 
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk18on 加密算法依赖 -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk18on</artifactId>
+                <version>${bcprov-jdk18on.version}</version>
+            </dependency>
+
+
+            <!-- https://dynamictp.cn/ 美团开源的动态线程池 -->
+            <dependency>
+                <groupId>org.dromara.dynamictp</groupId>
+                <artifactId>dynamic-tp-dependencies</artifactId>
+                <version>1.1.7-3.x</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

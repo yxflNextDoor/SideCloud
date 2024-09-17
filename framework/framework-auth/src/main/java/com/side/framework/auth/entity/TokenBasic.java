@@ -1,5 +1,7 @@
 package com.side.framework.auth.entity;
 
+import com.side.framework.auth.constants.TokenModeTypeEnum;
+import com.side.framework.auth.constants.TokenSourceEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,14 +35,21 @@ public class TokenBasic implements Serializable {
     private String refreshToken;
 
     /**
-     * 过期时间
+     * 参考过期时间
      */
     private long expireTime;
 
     /**
+     * token类型
+     *
+     * @see TokenModeTypeEnum
+     */
+    private String modelType;
+
+    /**
      * 权限范围
      *
-     * @see com.side.framework.auth.constants.TokenScopeEnum
+     * @see TokenSourceEnum
      */
-    private String scope;
+    private String sourceType;
 }

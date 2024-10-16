@@ -212,8 +212,8 @@ public class HostHelper {
                 lock.unlock();
             }
         }
-        cacheIp=getCurrentPublicIp();
-        log.info("重置公网ip获取策略完成 。。。 使用策略为：{}",minOpt.isPresent()?minOpt.get().getKey():"");
+        cacheIp = getCurrentPublicIp();
+        log.info("重置公网ip获取策略完成 。。。 使用策略为：{}", minOpt.isPresent() ? minOpt.get().getKey() : "");
     }
 
     /**
@@ -226,7 +226,7 @@ public class HostHelper {
         stopWatch.start();
         String ip = PUBLIC_IP_TACTICS.get(DefaultPublicIpUrl).get();
         stopWatch.stop();
-        if (stopWatch.getTime() > SlowMilliseconds) {
+        if (stopWatch.getTime(TimeUnit.MILLISECONDS) > SlowMilliseconds) {
             log.info("默认策略响应时间超过阈值，异步刷新策略。。。");
             CompletableFuture.runAsync(HostHelper::reloadDefaultUrl);
         }

@@ -17,8 +17,8 @@ public enum TokenModeTypeEnum {
     one("oneTime", "一次性模式"),
     unknown("unknown", "未知模式");
 
-    private String modelType;
-    private String modelDesc;
+    private final String modelType;
+    private final String modelDesc;
 
     TokenModeTypeEnum(String modelType, String modelDesc) {
         this.modelType = modelType;
@@ -33,7 +33,7 @@ public enum TokenModeTypeEnum {
      */
     public static TokenModeTypeEnum getByModelType(String modelType) {
         for (TokenModeTypeEnum tokenModeTypeEnum : TokenModeTypeEnum.values()) {
-            if (tokenModeTypeEnum.getModelType().equals(modelType)) {
+            if (tokenModeTypeEnum.getModelType().equalsIgnoreCase(modelType)) {
                 return tokenModeTypeEnum;
             }
         }

@@ -149,8 +149,7 @@ public class SafeHelper {
                 if (publicKeyStr == null || privateKeyStr == null) {
                     KeyPair defaultKeyPair = new KeyPair(
                             ECCKeyUtil.base64ToECPublicKey(publicKeyStr), ECCKeyUtil.base64ToECPrivateKey(privateKeyStr));
-                    SafeHelper newSageHelper = new SafeHelper(defaultAlgorithm, defaultInstance.cipher, defaultKeyPair);
-                    defaultInstance = newSageHelper;
+                    defaultInstance = new SafeHelper(defaultAlgorithm, defaultInstance.cipher, defaultKeyPair);
                 }
             } catch (Exception e) {
                 log.error("reloadDefaultInstance error", e.getMessage());
@@ -161,17 +160,17 @@ public class SafeHelper {
     /**
      * 摘要器
      */
-    private MessageDigest messageDigest;
+    private final MessageDigest messageDigest;
 
     /**
      * 加解密器
      */
-    private Cipher cipher;
+    private final Cipher cipher;
 
     /**
      * 密钥对
      */
-    private KeyPair keyPair;
+    private final KeyPair keyPair;
 
 
     /**

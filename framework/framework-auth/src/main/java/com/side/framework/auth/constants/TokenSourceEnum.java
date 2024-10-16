@@ -20,7 +20,6 @@ public enum TokenSourceEnum {
     // 以下来源为第三方授权给我们使用
     qq("qq", "QQ端"),
     alipay("alipay", "支付宝端"),
-    dingtalk("dingtalk", "钉钉端"),
     wecom("wecom", "企业微信端"),
     github("github", "GitHub登录"),
 

@@ -8,9 +8,9 @@ import java.util.*;
 public class TraitHelper {
 
     /**
-     * 前256质数集合
+     * 前256个质数集合
      */
-    private final static List<Integer> PRIME_NUMBERS = getPrimeNumberSortList(256);
+    private final static List<Integer> PRIME_NUMBERS = getPrimeNumberSortList256();
 
     private TraitHelper() {
     }
@@ -82,8 +82,7 @@ public class TraitHelper {
      * @return
      */
     private static int getEntryPrimitiveHash(Object entry) {
-        if (entry instanceof Map.Entry) {
-            Map.Entry<?, ?> entryMap = (Map.Entry<?, ?>) entry;
+        if (entry instanceof Map.Entry<?, ?> entryMap) {
             if (!canConvertToPrimitive(entryMap.getValue())) {
                 //value不是基础数据类型
                 return Integer.parseInt(getArgsTrait(entryMap.getValue()));
@@ -139,12 +138,11 @@ public class TraitHelper {
     }
 
     /**
-     * 获取前size位数的质数集合
+     * 获取前256位size位数的质数集合
      *
-     * @param size
      * @return
      */
-    private static List<Integer> getPrimeNumberSortList(int size) {
+    private static List<Integer> getPrimeNumberSortList256() {
         List<Integer> primeNumberList = new ArrayList<>();
         for (int i = 2; true; i++) {
             boolean isPrime = true;
@@ -156,7 +154,7 @@ public class TraitHelper {
             }
             if (isPrime) {
                 primeNumberList.add(i);
-                if (primeNumberList.size() == size) {
+                if (primeNumberList.size() == 256) {
                     break;
                 }
             }

@@ -130,6 +130,7 @@ public class SafeHelper {
 
     /**
      * 获取默认公钥字符串
+     *
      * @return
      */
     public static String getDefaultPublicKeyStr() {
@@ -152,7 +153,7 @@ public class SafeHelper {
                     defaultInstance = new SafeHelper(defaultAlgorithm, defaultInstance.cipher, defaultKeyPair);
                 }
             } catch (Exception e) {
-                log.error("reloadDefaultInstance error", e.getMessage());
+                log.error("reloadDefaultInstance error，msg:{}", e.getMessage());
             }
         }
     }
@@ -242,7 +243,6 @@ public class SafeHelper {
             return new String(bytes, charset);
         } catch (Exception e) {
             log.error("encryptUTF8 fail! msg:{}", e.getMessage());
-            e.printStackTrace();
         }
         return null;
     }
@@ -273,8 +273,7 @@ public class SafeHelper {
      */
     public synchronized Key unwrapUTF8(String data, String algorithm, int type) throws NoSuchAlgorithmException, InvalidKeyException {
         preWrap(keyPair.getPrivate(), Cipher.UNWRAP_MODE, cipher);
-        Key key = cipher.unwrap(Base64.getDecoder().decode(data), algorithm, type);
-        return key;
+        return cipher.unwrap(Base64.getDecoder().decode(data), algorithm, type);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.side.framework.auth.constants;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Getter;
  * @date 2024/09/16 17
  **/
 @Getter
+@AllArgsConstructor
 public enum TokenSourceEnum {
 
     // 以下来源为系统内置
@@ -25,18 +27,15 @@ public enum TokenSourceEnum {
 
     // 我们授权给第三方使用
     oauth2("oauth2", "授权码模式"),
+
     unknown("unknown", "未知来源"),
     ;
 
 
-    private String sourceType;
+    private final String sourceType;
 
-    private String description;
+    private final String description;
 
-    TokenSourceEnum(String sourceType, String description) {
-        this.sourceType = sourceType;
-        this.description = description;
-    }
 
     /**
      * 根据scope获取枚举值

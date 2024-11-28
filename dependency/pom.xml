@@ -42,6 +42,8 @@
         <lombok.version>1.18.34</lombok.version>
         <slf4j.version>2.0.16</slf4j.version>
         <jackson.version>2.17.2</jackson.version>
+        <eclipse-collections.version>11.1.0</eclipse-collections.version>
+        <eclipse-collections-api.version>11.1.0</eclipse-collections-api.version>
     </properties>
 
     <dependencyManagement>
@@ -135,6 +137,21 @@
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections -->
+            <dependency>
+                <groupId>org.eclipse.collections</groupId>
+                <artifactId>eclipse-collections</artifactId>
+                <version>${eclipse-collections.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections-api -->
+            <dependency>
+                <groupId>org.eclipse.collections</groupId>
+                <artifactId>eclipse-collections-api</artifactId>
+                <version>${eclipse-collections-api.version}</version>
+            </dependency>
+
 
             <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
             <dependency>

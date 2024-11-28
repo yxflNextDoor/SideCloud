@@ -54,6 +54,12 @@
             <artifactId>bcprov-jdk18on</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.eclipse.collections/eclipse-collections -->
+        <dependency>
+            <groupId>org.eclipse.collections</groupId>
+            <artifactId>eclipse-collections</artifactId>
+        </dependency>
+
 
 
     </dependencies>

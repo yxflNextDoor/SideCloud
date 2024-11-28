@@ -2,17 +2,21 @@ package com.side.framework.core.exception;
 
 
 import com.side.framework.core.constants.CodeCustomInterface;
+import lombok.Getter;
+
+import java.io.Serial;
 
 /**
- * @param :
  * @author : yxfl
  * @date : 2022/5/1
- * @description :
+ * {@code @description} :
  */
+@Getter
 public class BasicException extends RuntimeException {
+    @Serial
     private static final long serialVersionUID = 6782259839208412575L;
-    private Integer errorCode;
-    private String errorMsg;
+    private final Integer errorCode;
+    private final String errorMsg;
 
     public BasicException(Integer errorCode, String errorMsg) {
         this.errorCode = errorCode;
@@ -29,11 +33,4 @@ public class BasicException extends RuntimeException {
         this.errorMsg = errorMsg;
     }
 
-    public Integer getErrorCode() {
-        return errorCode;
-    }
-
-    public String getErrorMsg() {
-        return errorMsg;
-    }
 }

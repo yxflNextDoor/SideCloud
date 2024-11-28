@@ -18,7 +18,7 @@ public class ThreadHelper {
     private ThreadHelper() {
     }
 
-    private static final ThreadLocal<Map<String, Object>> defaultThreadLocal = new InheritableThreadLocal<>();
+    private static final ThreadLocal<ConcurrentHashMap<String, Object>> defaultThreadLocal = new InheritableThreadLocal<>();
 
     /**
      * 默认线程池
@@ -82,7 +82,7 @@ public class ThreadHelper {
      * @param value
      */
     public static void setValue(String key, Object value) {
-        Map<String, Object> map = defaultThreadLocal.get();
+        ConcurrentHashMap<String, Object> map = defaultThreadLocal.get();
         if (Objects.isNull(map)) {
             map = new ConcurrentHashMap<>();
         }
@@ -100,7 +100,7 @@ public class ThreadHelper {
     public static Object getValue(String key) {
         Map<String, Object> map = defaultThreadLocal.get();
         if (Objects.isNull(map)) {
-            defaultThreadLocal.set(new HashMap<>());
+            defaultThreadLocal.set(new ConcurrentHashMap<>());
             return null;
         }
         return map.getOrDefault(key, null);

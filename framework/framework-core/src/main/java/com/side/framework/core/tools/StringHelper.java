@@ -85,11 +85,10 @@ public class StringHelper {
      * @param data
      * @return
      */
-    public static List<String> getIgnSymNums(String data) {
+    public static List<String> getIgnSymNumCol(String data) {
         if (StringUtils.isBlank(data)) {
             return Collections.emptyList();
         }
-
 
         List<String> outs = new ArrayList<>();
         char[] chars = data.toCharArray();
@@ -131,9 +130,9 @@ public class StringHelper {
                 .map(NUMBER::get)
                 .collect(Collectors.toList());
         // 临时变量，存储最终的值
-        Integer temp = 0;
+        int temp = 0;
         // 下标，进行到了哪里
-        Integer index = 0;
+        int index = 0;
         // 下一个数字是否是单位数字 大于等10则为单位
         boolean isTemp2 = false;
         for (Integer integer : collect) {
@@ -197,7 +196,7 @@ public class StringHelper {
             return null;
         }
         str = str.trim();
-        if (str.length() == 0) {
+        if (str.isEmpty()) {
             return null;
         }
         return str;

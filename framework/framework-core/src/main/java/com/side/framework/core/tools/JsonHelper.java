@@ -9,6 +9,7 @@ import com.side.framework.core.constants.CoreConstant;
 import com.side.framework.core.exception.BasicException;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 /**
@@ -40,9 +41,8 @@ public class JsonHelper {
             out = JSON_MAPPER.writeValueAsString(data);
         } catch (JsonProcessingException e) {
             throw new BasicException(CodeEnum.HELPER_ERROR, "json转换异常");
-        } finally {
-            return out;
         }
+        return out;
     }
 
     /**
@@ -59,9 +59,8 @@ public class JsonHelper {
             out = OBJECT_MAPPER.readValue(json, cla);
         } catch (JsonProcessingException e) {
             throw new BasicException(CodeEnum.HELPER_ERROR, "json convert fail");
-        } finally {
-            return out;
         }
+        return out;
     }
 
     /**
@@ -78,9 +77,8 @@ public class JsonHelper {
             out = OBJECT_MAPPER.readValue(json, typeReference);
         } catch (JsonProcessingException e) {
             throw new BasicException(CodeEnum.HELPER_ERROR, "json convert fail");
-        } finally {
-            return out;
         }
+        return out;
     }
 
     /**
@@ -90,15 +88,14 @@ public class JsonHelper {
      * @param cla
      * @return
      */
-    public static Object jsonToObj(String json, Class cla) {
+    public static Object jsonToObj(String json, Class<?> cla) {
         Object out = null;
         try {
             out = OBJECT_MAPPER.readValue(json, cla);
         } catch (JsonProcessingException e) {
             throw new BasicException(CodeEnum.HELPER_ERROR, "json convert fail");
-        } finally {
-            return out;
         }
+        return out;
     }
 
     /**
@@ -113,11 +110,10 @@ public class JsonHelper {
         T out = null;
         try {
             out = OBJECT_MAPPER.readValue(bytes, cla);
-        } catch (JsonProcessingException e) {
+        } catch (IOException e) {
             throw new BasicException(CodeEnum.HELPER_ERROR, "json convert fail");
-        } finally {
-            return out;
         }
+        return out;
     }
 
     /**

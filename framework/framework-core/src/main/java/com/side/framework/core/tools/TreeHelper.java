@@ -120,8 +120,8 @@ public class TreeHelper {
     /**
      * 刷新左右索引
      *
-     * @param originalTreeList
-     * @param index
+     * @param originalTreeList 原始树的集合
+     * @param index 默认起始的索引
      * @return
      */
     public static List<TreeBasic> refreshLeftAndRight(List<TreeBasic> originalTreeList, Integer index) {

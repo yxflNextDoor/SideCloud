@@ -28,7 +28,7 @@ public enum CodeEnum implements CodeCustomInterface {
     /**
      * 新增或更新操作成功
      */
-    CREATE_OK(201, "save ok"),
+    SAVE_OK(201, "save ok"),
     /**
      * 业务操作失败
      */
@@ -100,11 +100,11 @@ public enum CodeEnum implements CodeCustomInterface {
     /**
      * 返回码
      */
-    private Integer code;
+    private final Integer code;
     /**
      * 返回信息
      */
-    private String msg;
+    private final String msg;
 
     CodeEnum(Integer code, String msg) {
         this.code = code;

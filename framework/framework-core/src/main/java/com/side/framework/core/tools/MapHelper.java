@@ -61,7 +61,7 @@ public class MapHelper {
      * @param <T>
      * @return
      */
-    public static <T extends Map> T convertToMap(Object pojo, Class<T> pojoClass) {
+    public static <T extends Map<String,Object>> T convertToMap(Object pojo, Class<T> pojoClass) {
         if (pojo == null) {
             return null;
         } else {

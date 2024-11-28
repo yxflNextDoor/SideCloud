@@ -1,4 +1,4 @@
-# SideCloud
+ # SideCloud
 
 ## 目标说明
 
@@ -15,7 +15,7 @@ SideCloud 是一个基于云的边缘计算平台，旨在为边缘计算设备�
 #### 2.服务网关：Spring Cloud Gateway
 #### 3.服务调用：Spring Cloud OpenFeign
 #### 4.分布式事务：seata
-#### 5.分布式调度：xxlJob
+#### 5.分布式调度：xxlJob、powerJob
 #### 6.消息总线：Spring Cloud Stream
 #### 7.数据库：MySQL、postgreSQL、MongoDB
 #### 8.缓存：Redis、Memcached

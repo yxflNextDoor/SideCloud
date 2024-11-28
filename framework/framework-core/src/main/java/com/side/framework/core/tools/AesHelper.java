@@ -80,10 +80,9 @@ public class AesHelper {
     }
 
     /**
-     * 尝试解密，失败返回原文
-     *
-     * @param encryptedText
-     * @return
+     * 尝试解密
+     * @param encryptedText 加密数据
+     * @return 解密数据
      */
     public static String tryDecrypt(String encryptedText) {
         try {

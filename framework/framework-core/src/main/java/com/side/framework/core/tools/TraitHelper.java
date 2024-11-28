@@ -33,7 +33,7 @@ public class TraitHelper {
 
     private static List<Integer> getArgsHashList(Object... args) {
         List<Integer> hashList = Collections.synchronizedList(new ArrayList<>());
-        Integer index = 0;
+        int index = 0;
         for (Object obj : args) {
             if (canConvertToPrimitive(obj)) {
                 hashList.add(getPrimitiveHash(obj, index));
@@ -48,7 +48,7 @@ public class TraitHelper {
             HashMap hashMap = MapHelper.convertToMap(obj, HashMap.class);
             for (Object entry : hashMap.entrySet()) {
                 hashList.add(PRIME_NUMBERS.get(index) * getEntryPrimitiveHash(entry));
-                if (index.intValue() == 255) {
+                if ((int) index == 255) {
                     index = 0;
                 }
             }

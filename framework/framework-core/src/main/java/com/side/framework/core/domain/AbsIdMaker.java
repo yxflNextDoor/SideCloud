@@ -30,7 +30,7 @@ public abstract class AbsIdMaker implements IdMaker {
      *
      * @return
      */
-    long generateBatchIdTime() {
+    long generateBatchIdTime() {  
         StopWatch stopWatch = new StopWatch();
         for (int i = 0; i < BENCH_SIZE; i++) {
             this.nextId();
@@ -42,10 +42,9 @@ public abstract class AbsIdMaker implements IdMaker {
 
     @Override
     public int compareTo(IdMaker maker) {
-        if (Objects.isNull(maker) || !(maker instanceof AbsIdMaker)) {
+        if (Objects.isNull(maker) || !(maker instanceof AbsIdMaker absIdMaker)) {
             return 0;
         }
-        AbsIdMaker absIdMaker = (AbsIdMaker) maker;
         return Long.compare(this.generateBatchIdTime(), absIdMaker.generateBatchIdTime());
     }
 }

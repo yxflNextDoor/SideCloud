@@ -44,10 +44,35 @@
         <jackson.version>2.17.2</jackson.version>
         <eclipse-collections.version>11.1.0</eclipse-collections.version>
         <eclipse-collections-api.version>11.1.0</eclipse-collections-api.version>
+        <netty.version>4.1.115.Final</netty.version>
+
+        <!--    自定义模块通用版本    -->
+        <framework-dependency.version>1.0-SNAPSHOT</framework-dependency.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.side</groupId>
+                <artifactId>framework-core</artifactId>
+                <version>${framework-dependency.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.side</groupId>
+                <artifactId>framework-auth</artifactId>
+                <version>${framework-dependency.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.side</groupId>
+                <artifactId>framework-log</artifactId>
+                <version>${framework-dependency.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.side</groupId>
+                <artifactId>framework-spring</artifactId>
+                <version>${framework-dependency.version}</version>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot -->
             <dependency>
@@ -72,6 +97,7 @@
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api  日志依赖
@@ -150,6 +176,13 @@
                 <groupId>org.eclipse.collections</groupId>
                 <artifactId>eclipse-collections-api</artifactId>
                 <version>${eclipse-collections-api.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
             </dependency>
 
 

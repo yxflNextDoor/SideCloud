@@ -1,8 +1,9 @@
 package com.side.framework.core.tools;
 
+import io.netty.util.concurrent.FastThreadLocal;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.Contract;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.*;
@@ -18,7 +19,7 @@ public class ThreadHelper {
     private ThreadHelper() {
     }
 
-    private static final ThreadLocal<ConcurrentHashMap<String, Object>> defaultThreadLocal = new InheritableThreadLocal<>();
+    private static final FastThreadLocal<ConcurrentHashMap<String, Object>> defaultThreadLocal = new FastThreadLocal<>();
 
     /**
      * 默认线程池
@@ -69,8 +70,10 @@ public class ThreadHelper {
 
     /**
      * 获取轻量化线程池
+     *
      * @return
      */
+    @Contract(pure = true)
     public static ThreadPoolExecutor getMinThreadPoolExecutor() {
         return minThreadPoolExecutor;
     }

@@ -17,7 +17,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TreeBasic<T extends TreeBasic<?>> implements Serializable {
+public class TreeBasic<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = 2402426107666574729L;
 
@@ -51,6 +51,11 @@ public class TreeBasic<T extends TreeBasic<?>> implements Serializable {
      */
     private Integer sort;
 
-    private List<TreeBasic<T>> childrenList;
+    /**
+     * 数据
+     */
+    private T data;
+
+    private List<TreeBasic<? extends T>> childrenList;
 
 }

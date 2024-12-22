@@ -45,6 +45,7 @@
         <eclipse-collections.version>11.1.0</eclipse-collections.version>
         <eclipse-collections-api.version>11.1.0</eclipse-collections-api.version>
         <netty.version>4.1.115.Final</netty.version>
+        <netty.bom.version>4.1.112.Final</netty.bom.version>
 
         <!--    自定义模块通用版本    -->
         <framework-dependency.version>1.0-SNAPSHOT</framework-dependency.version>
@@ -183,6 +184,13 @@
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-bom</artifactId>
+                <version>${netty.bom.version}</version>
             </dependency>
 
 

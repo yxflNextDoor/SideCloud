@@ -45,4 +45,19 @@ public class CoreConstant {
      */
     public final static String TIME_ZONE = "GMT+8";
 
+    /**
+     * 默认编码
+     */
+    public final static String DEFAULT_CHARSET = "UTF-8";
+
+    /**
+     * 默认查询一条结尾语句
+     */
+    public final static String SQL_LIMIT_ONE = "limit 1";
+
+    /**
+     * 线程池名称：通用线程池
+     */
+    public final static String THREAD_POOL_NAME_COMMON = "common-thread-pool";
+
 }
